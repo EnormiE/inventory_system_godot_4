@@ -8,3 +8,4 @@ res://InventorySystem/InventoryContainer.tscn
 res://InventorySystem/InventoryDisplay.tscn
 res://InventorySystem/Items/item1.tres
 res://InventorySystem/InventorySlotDisplay.gd
+res://InventorySystem/Inventory.gd

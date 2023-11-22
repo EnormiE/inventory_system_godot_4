@@ -46,29 +46,31 @@ func split_items(source_inventory, item_index, target_item_index):
 		# Lecimy
 		if target_item is Item:
 			# Zajęty slot
-			if item.amount % 2 == 0:
-				# Parzyste
-				if target_item.name == item.name:
-					# Takie same itemy w slotach
-					target_item.amount += item.amount /2
-					item.amount /= 2
-					source_inventory.emit_signal("items_changed", [item_index])
-					emit_signal("items_changed", [target_item_index])
+			if item_index != target_item_index:
+				# To nie ten sam slot
+				if item.amount % 2 == 0:
+					# Parzyste
+					if target_item.name == item.name:
+						# Takie same itemy w slotach
+						target_item.amount += item.amount /2
+						item.amount /= 2
+						source_inventory.emit_signal("items_changed", [item_index])
+						emit_signal("items_changed", [target_item_index])
+					else:
+						# Różne itemy
+						printerr("różne itemy")
 				else:
-					# Różne itemy
-					printerr("różne itemy")
-			else:
-				# Nie parzyste
-				if target_item.name == item.name:
-					# Takie same itemy w slotach
-					target_item.amount = (item.amount + 1) /2
-					target_item.amount -= 1
-					item.amount = (item.amount + 1) /2
-					source_inventory.emit_signal("items_changed", [item_index])
-					emit_signal("items_changed", [target_item_index])
-				else:
-					# Różne itemy
-					printerr("różne itemy")
+					# Nie parzyste
+					if target_item.name == item.name:
+						# Takie same itemy w slotach
+						target_item.amount = (item.amount + 1) /2
+						target_item.amount -= 1
+						item.amount = (item.amount + 1) /2
+						source_inventory.emit_signal("items_changed", [item_index])
+						emit_signal("items_changed", [target_item_index])
+					else:
+						# Różne itemy
+						printerr("różne itemy")
 		else:
 			# Wolny slot
 			if item.amount % 2 == 0:
