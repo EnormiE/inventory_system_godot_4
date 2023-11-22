@@ -63,7 +63,7 @@ func split_items(source_inventory, item_index, target_item_index):
 					# There is an uneven amount of items to split
 					if target_item.name == item.name:
 						# There are the same items in both slots
-						target_item.amount = (item.amount + 1) /2
+						target_item.amount = target_item.amount + (item.amount + 1) /2
 						target_item.amount -= 1
 						item.amount = (item.amount + 1) /2
 						source_inventory.emit_signal("items_changed", [item_index])
