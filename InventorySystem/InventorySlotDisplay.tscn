@@ -14,6 +14,12 @@ size_flags_vertical = 3
 theme = ExtResource("4")
 script = ExtResource("2")
 
+[node name="SlotBorderTextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("1")
+stretch_mode = 4
+
 [node name="ItemTextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
@@ -21,19 +27,13 @@ stretch_mode = 4
 
 [node name="ItemAmountLabel" type="Label" parent="ItemTextureRect"]
 layout_mode = 0
-offset_left = 71.0
-offset_top = 66.0
-offset_right = 180.0
-offset_bottom = 120.0
+offset_left = 87.0
+offset_top = 88.0
+offset_right = 196.0
+offset_bottom = 142.0
 theme_override_fonts/font = ExtResource("3")
-theme_override_font_sizes/font_size = 50
-text = "100"
-
-[node name="SlotBorderTextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-texture = ExtResource("1")
-stretch_mode = 4
+theme_override_font_sizes/font_size = 28
+text = "321"
 
 [connection signal="mouse_entered" from="." to="." method="_on_InventorySlotDisplay_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_InventorySlotDisplay_mouse_exited"]

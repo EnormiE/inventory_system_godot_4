@@ -33,7 +33,10 @@ func _process(delta: float) -> void:
 func display_item(item):
 	if item is Item:
 		item_texture_rect.texture = item.texture
-		item_amount_label.text = str(item.amount)
+		if item.amount > 1:
+			item_amount_label.text = str(item.amount)
+		else:
+			item_amount_label.text = ""
 		var description_string = str(item.description)
 		tooltip_text = wrap_words(description_string)
 

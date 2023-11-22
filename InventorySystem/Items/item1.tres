@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1")
 name = "Item 1"
-description = ""
+description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 texture = ExtResource("2_ko21m")
 sell_price = 0.0
 buy_price = 0.0
