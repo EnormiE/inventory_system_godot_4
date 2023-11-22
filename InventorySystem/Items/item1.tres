@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b300u3xl5fmhn"]
+
+[ext_resource type="Script" path="res://InventorySystem/Item.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://t355u4pr1unr" path="res://Assets/Items/item1.png" id="2_ko21m"]
+
+[resource]
+script = ExtResource("1")
+name = "Item 1"
+description = ""
+texture = ExtResource("2_ko21m")
+sell_price = 0.0
+buy_price = 0.0
+currency_amount = 0.0
+difficulty = 0
+damage = 0
+attack_range = 0
+attack_speed = 0
+knockback = 0
+durability = 0
+consumable = true
+high = 0
+damage_boost = 0.0
+knockback_boost = 0.0
+attack_speed_boost = 0.0
+healing = 0.0

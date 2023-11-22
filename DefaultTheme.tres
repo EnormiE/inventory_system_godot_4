@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://052ra2gvfot6"]
+
+[ext_resource type="FontFile" uid="uid://cyjbvp2vlgu68" path="res://Assets/PixelRPG.tres" id="1"]
+
+[sub_resource type="StyleBoxFlat" id="2"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 1)
+
+[resource]
+default_font = ExtResource("1")
+TooltipLabel/colors/font_color = Color(1, 1, 1, 1)
+TooltipLabel/colors/font_color_shadow = Color(0, 0, 0, 0.101961)
+TooltipLabel/constants/shadow_offset_x = 1
+TooltipLabel/constants/shadow_offset_y = 1
+TooltipPanel/styles/panel = SubResource("2")

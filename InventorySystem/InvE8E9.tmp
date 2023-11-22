@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://caaamfbi08lii"]
+
+[ext_resource type="PackedScene" uid="uid://hsm4drpm4xtg" path="res://InventorySystem/InventoryDisplay.tscn" id="1"]
+[ext_resource type="Script" path="res://InventorySystem/InventoryContainer.gd" id="2"]
+[ext_resource type="Resource" uid="uid://c36x1bp35n8ts" path="res://InventorySystem/Inventory.tres" id="3"]
+
+[node name="InventoryContainer" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.172549, 0.356863, 0.588235, 1)
+script = ExtResource("2")
+inventory = ExtResource("3")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="InventoryDisplay" parent="CenterContainer" instance=ExtResource("1")]
+layout_mode = 2

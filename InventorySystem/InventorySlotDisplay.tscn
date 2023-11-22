@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqgt21cwn5hh"]
+
+[ext_resource type="Texture2D" uid="uid://br31krvi8l001" path="res://Assets/Items/EmptyInventorySlot.png" id="1"]
+[ext_resource type="Script" path="res://InventorySystem/InventorySlotDisplay.gd" id="2"]
+[ext_resource type="FontFile" uid="uid://cyjbvp2vlgu68" path="res://Assets/PixelRPG.tres" id="3"]
+[ext_resource type="Theme" uid="uid://052ra2gvfot6" path="res://DefaultTheme.tres" id="4"]
+
+[node name="InventorySlotDisplay" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("4")
+script = ExtResource("2")
+
+[node name="ItemTextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+stretch_mode = 4
+
+[node name="ItemAmountLabel" type="Label" parent="ItemTextureRect"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 66.0
+offset_right = 180.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("3")
+theme_override_font_sizes/font_size = 50
+text = "100"
+
+[node name="SlotBorderTextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("1")
+stretch_mode = 4
+
+[connection signal="mouse_entered" from="." to="." method="_on_InventorySlotDisplay_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_InventorySlotDisplay_mouse_exited"]
