@@ -43,38 +43,38 @@ func split_items(source_inventory, item_index, target_item_index):
 	var item = source_inventory.items[item_index]
 	var target_item = items[target_item_index]
 	if item.amount > 1:
-		# Lecimy
+		# There are multiple items in this spot
 		if target_item is Item:
-			# Zajęty slot
+			# The target slot is taken
 			if item_index != target_item_index:
-				# To nie ten sam slot
+				# The initial slot and the target slot are not the same slot
 				if item.amount % 2 == 0:
-					# Parzyste
+					# There is an even amount of items to split
 					if target_item.name == item.name:
-						# Takie same itemy w slotach
+						# There are the same items in both slots
 						target_item.amount += item.amount /2
 						item.amount /= 2
 						source_inventory.emit_signal("items_changed", [item_index])
 						emit_signal("items_changed", [target_item_index])
 					else:
-						# Różne itemy
-						printerr("różne itemy")
+						# Items in initial slot and target slot are not the same item
+						printerr("Items in initial slot and target slot are not the same item")
 				else:
-					# Nie parzyste
+					# There is an uneven amount of items to split
 					if target_item.name == item.name:
-						# Takie same itemy w slotach
+						# There are the same items in both slots
 						target_item.amount = (item.amount + 1) /2
 						target_item.amount -= 1
 						item.amount = (item.amount + 1) /2
 						source_inventory.emit_signal("items_changed", [item_index])
 						emit_signal("items_changed", [target_item_index])
 					else:
-						# Różne itemy
-						printerr("różne itemy")
+						# Items in initial slot and target slot are not the same item
+						printerr("Items in initial slot and target slot are not the same item")
 		else:
-			# Wolny slot
+			# The target slot is empty
 			if item.amount % 2 == 0:
-				# Parzyste
+				# There is an even amount of items to split
 				set_item(target_item_index, item)
 				target_item = items[target_item_index]
 				target_item.amount = item.amount /2
@@ -82,7 +82,7 @@ func split_items(source_inventory, item_index, target_item_index):
 				source_inventory.emit_signal("items_changed", [item_index])
 				emit_signal("items_changed", [target_item_index])
 			else:
-				# Nie parzyste
+				# There is an uneven amount of items to split
 				set_item(target_item_index, item)
 				target_item = items[target_item_index]
 				target_item.amount = (item.amount + 1) /2
@@ -90,9 +90,6 @@ func split_items(source_inventory, item_index, target_item_index):
 				item.amount = (item.amount + 1) /2
 				source_inventory.emit_signal("items_changed", [item_index])
 				emit_signal("items_changed", [target_item_index])
-	else:
-		# Nie lecimy
-		printerr("not enough items")
 
 
 func remove_item(item_index):
