@@ -8,7 +8,7 @@ extends CenterContainer
 var inventory : Resource
 
 var mouse_over := false # Whether mouse is over slot or not
-var hold_time = 0 # Amount of time you held right mouse button clicked on slot
+var hold_time = 0.0 # Amount of time you held right mouse button clicked on slot
 
 
 func _process(delta: float) -> void:
@@ -19,15 +19,16 @@ func _process(delta: float) -> void:
 		hold_time += delta
 
 	if Input.is_action_just_released("ui_right_mouse"):
-		hold_time = 0
+		hold_time = 0.0
 
 	if hold_time >= 0.5:
 		var item_index = get_index()
 		var item = inventory.items[item_index]
 		if item is Item and item.consumable:
+			inventory.decrease_items_amount(item_index, 1)
 			GlobalSignals.emit_signal("item_consumed", item)
-			inventory.remove_item(item_index)
-
+		Input.action_release("ui_right_mouse")
+		hold_time = 0.0
 
 
 func display_item(item):

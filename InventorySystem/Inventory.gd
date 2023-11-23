@@ -99,6 +99,16 @@ func remove_item(item_index):
 	return previous_item
 
 
+func decrease_items_amount(item_index, subtrahend):
+	var item = items[item_index]
+	item.amount -= subtrahend
+	if item.amount <= 0:
+		remove_item(item_index)
+	else:
+		emit_signal("items_changed", [item_index])
+	return item
+
+
 func make_items_unique():
 	var unique_items : Array[Resource] = []
 	for item in items:
