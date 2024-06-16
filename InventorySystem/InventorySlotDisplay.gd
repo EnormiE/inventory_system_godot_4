@@ -46,6 +46,8 @@ func display_item(item):
 		item_amount_label.text = ""
 
 
+# Function for wrapping words, idk if it's still necesary
+# I wrote it because Godot's word wrap wasn't working well in 3.5
 func wrap_words(string):
 	var words = string.split(" ")
 	var max_chars_per_line = 20
