@@ -1,8 +1,0 @@
-res://default_env.tres
-res://InventorySystem/InventoryContainer.tscn
-res://InventorySystem/InventoryDisplay.gd
-res://Assets/PixelRPG.tres
-res://DefaultTheme.tres
-res://InventorySystem/Inventory.tres
-res://InventorySystem/InventoryDisplay.tscn
-res://InventorySystem/InventorySlotDisplay.tscn
